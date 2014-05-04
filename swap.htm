@@ -1,0 +1,81 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+	
+</head>
+<body>
+        
+         <div class="page"   >
+        
+         <div align="center"  ng-controller="SimpleController">
+                             <table border="1" cellpadding="2" cellspacing="2" >
+                                    <tr>
+                                        <div>
+                    
+                                             
+                                               <td ng-repeat="cust in customers" ng-click="swap(this.$index)" >                            
+                                                <img width="220" height="100" src={{cust.image}}  id={{cust.id}} /><br />
+                                                Name {{cust.name}}
+                                            </td>
+                        
+                                            </td>
+                        
+                                        </div>
+                    
+                    
+                                    </tr>
+                             </table>
+                    </div>
+        
+    </div>
+    
+        
+
+	 <script src="Scripts/angular.min.js" ></script>
+    <script src="Scripts/Ad-Axis-NN.js" type="text/javascript"></script>
+    <script src="Scripts/DREM_Data.js" type="text/javascript"></script>
+    
+    <script src="Scripts/mrdoob-three.js-8413a86/build/three.js" type="text/javascript"></script>
+    
+      <script>
+          var demoApp = angular.module('demoApp', []);
+          function SimpleController($scope) {
+
+              demoApp.controller('SimpleController', SimpleController)
+
+              $scope.customers = [
+                                       { name: 'Element  1111 ', image:'Images/1.jpg',  id:1},
+                                       { name: 'Element 222 ', image: 'Images/2.jpg', id: 2 },
+                                       { name: 'Element 333 ', image: 'Images/3.jpg', id: 3 },
+
+                                      
+                                ];
+
+
+                                       $scope.swap = function (index) {
+                                           //index = index - 1;
+                                           //alert(index);
+                                           var temp = $scope.customers[1];
+                                           $scope.customers[1] = $scope.customers[index];
+                                           $scope.customers[index] = temp;
+
+
+                                       }
+
+          }
+      
+      </script>
+
+
+    </div>
+
+
+
+</body>
+
+
+</html>
